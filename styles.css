@@ -47,7 +47,26 @@ button:active {
 #laps {
     margin-top: 20px;
     text-align: center;
+    max-height: 200px;
 }
 #laps h2 {
     margin-bottom: 10px;
+}
+#laps div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: #e2e2e2;
+    margin: 5px;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 1.3em;
+}
+#laps div:nth-child(odd) {
+    background: #d1d1d1;
+}
+#laps span {
+    font-size: 1.3rem;
+    font-weight: 100;
 }

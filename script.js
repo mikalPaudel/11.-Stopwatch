@@ -51,7 +51,15 @@ resetBtn.addEventListener("click", () => {
 lapBtn.addEventListener("click", () => {
     if (isRunning) {
         const lapTime = document.createElement("div");
+        const lapRemoveIcon = document.createElement("span");
         lapTime.textContent = timeDisplay.textContent;
         document.getElementById("laps").appendChild(lapTime);
+        lapRemoveIcon.textContent = "✖";
+        lapRemoveIcon.style.cursor = "pointer";
+        lapRemoveIcon.style.color = "red";
+        lapRemoveIcon.addEventListener("click", () => {
+            lapTime.remove();
+        });
+        lapTime.appendChild(lapRemoveIcon);
     }
 });
