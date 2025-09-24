@@ -5,7 +5,7 @@ let isRunning = false;
 const timeDisplay = document.getElementById("time");
 const startStopBtn = document.getElementById("startStopBtn");
 const resetBtn = document.getElementById("resetBtn");
-const pauseBtn = document.getElementById("pauseBtn");
+const lapBtn = document.getElementById("lapBtn");
 
 function updateTime() {
     seconds++;
@@ -17,10 +17,15 @@ function updateTime() {
             hours++;
         }
     }
-    timeDisplay.textContent = 
-        `${hours.toString().padStart(2, '0')}:` +
-        `${minutes.toString().padStart(2, '0')}:` +
-        `${seconds.toString().padStart(2, '0')}`;
+    // Set the text content of the time display element
+timeDisplay.textContent = 
+    // Format the 'hours' to 2 digits, and add a colon after it
+    `${hours.toString().padStart(2, '0')}:` + 
+    // Format the 'minutes' to 2 digits, and add a colon after it
+    `${minutes.toString().padStart(2, '0')}:` + 
+    // Format the 'seconds' to 2 digits
+    `${seconds.toString().padStart(2, '0')}`;
+
 }
 
 startStopBtn.addEventListener("click", () => {
@@ -43,10 +48,10 @@ resetBtn.addEventListener("click", () => {
     isRunning = false;
 });
 
-pauseBtn.addEventListener("click", () => {
+lapBtn.addEventListener("click", () => {
     if (isRunning) {
-        clearInterval(timer);
-        startStopBtn.textContent = "Start";
-        isRunning = false;
+        const lapTime = document.createElement("div");
+        lapTime.textContent = timeDisplay.textContent;
+        document.getElementById("laps").appendChild(lapTime);
     }
 });
